@@ -24,6 +24,8 @@
 
 ## Contributions
 
+- https://www.keycdn.com/support/regex-cheat-sheet
+
 ## Tests
 
 ## Questions

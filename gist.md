@@ -1,4 +1,4 @@
-# Title (replace with your title)
+# Email Validator Regular Expression
 
 Regular expressions also known as regex are a series of special characters that define a search pattern and validate specific strings. 
 
@@ -60,7 +60,7 @@ $: The end anchor. It asserts that the match must end at the end of the text.
 
 ### OR Operator
 
-- Or operator is done by [a-z0-9_\.-], allows any character from this set to be matched. and ([\da-z\.-]+), allows  multiple characters from this set to be matched in sequence.
+- Or operator is done by [a-z0-9_\.-], allows any character from this set to be matched. and ([\da-z\.-]+), allows multiple characters from this set to be matched in sequence.
 
 ### Character Classes
 
@@ -87,21 +87,29 @@ a, b, c, ..., z (all lowercase letters)
 
 ### Grouping and Capturing
 
-1. ([a-z0-9_\.-]+): matches and captures the local part of the email address (before the "@" symbol). The local part consists of lowercase letters (a-z), digits (0-9), underscores (_), periods (.), or hyphens (-).
+- Group 1 ([a-z0-9_\.-]+) - In this section of the expression, we match one or more lowercase letters between a-z, numbers between 0-9, underscores, periods, and hyphens. The expression is then followed by an @ sign.
 
-2. ([\da-z\.-]+):  matches and captures the domain name part of the email address (after the "@" symbol). The domain name consists of lowercase letters (a-z), digits (0-9), periods (.), or hyphens (-).
+- Group 2 ([\da-z\.-]+) - Next, the domain name must be matched which can use one or more digits, letters between a-z, periods, and hyphens. The domain name is then followed by a period \..
 
-3. ([a-z\.]{2,6}): matches and captures the top-level domain (TLD) part of the email address. The TLD consists of lowercase letters (a-z) or periods (.).
+- Group 3 ([a-z\.]{2,6}) - Lastly, the third group matches the top level domain. This section looks for any group of letters or dots that are 2-5 characters long. This can also account for region-specific top level domains.
 
 ### Bracket Expressions
 
+- [a-z0-9_\.-], matches characters in the local part of the email address before the "@" symbol.
+- ([\da-z\.-]+), matches characters in the domain name part of the email address after the "@" symbol
+- [a-z\.], matches any lowercase letter (a-z) or a period (.) in the third capturing group
+
 ### Greedy and Lazy Match
+
+- Greed and lazy match not applicable. 
 
 ### Boundaries
 
+- The anchor and dollar sign ensures there are no other characters before or after the email address. 
+
 ### Back-references
 
-- No back referneces. 
+- No back referneces applicable. 
 
 ### Look-ahead and Look-behind
 
