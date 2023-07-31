@@ -1,10 +1,10 @@
 # Title (replace with your title)
 
-Introductory paragraph (replace this with your text)
+Regular expressions also known as regex are a series of special characters that define a search pattern and validate specific strings. 
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+The regular expression /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ is used to validate email addresses. It checks whether a string follows a specific pattern to form a valid email address.
 
 ## Table of Contents
 
@@ -22,17 +22,76 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ## Regex Components
 
+1.  ^: The start anchor. It asserts that the match must start at the beginning of the text.
+
+2. ([a-z0-9_\.-]+): This is the first capturing group, which matches the local part of the email address (before the "@" symbol). It consists of the following components:
+
+3. [a-z0-9_\.-]: A character class that matches any lowercase letter (a-z), digit (0-9), underscore (_), period (.), or hyphen (-).
++: The plus symbol means that the preceding character class should occur one or more times, allowing multiple characters in the local part of the email address.
+@: This simply matches the "@" symbol in the email address.
+
+4. ([\da-z\.-]+): This is the second capturing group, which matches the domain name (after the "@" symbol). It consists of the following components:
+
+5. [\da-z\.-]: A character class that matches any lowercase letter (a-z), digit (0-9), period (.), or hyphen (-).
++: The plus symbol means that the preceding character class should occur one or more times, allowing multiple characters in the domain name.
+\.: This matches the literal period (dot) in the domain name. The period is a special character in regex, so it needs to be escaped with a backslash to match a literal period.
+
+6. ([a-z\.]{2,6}): This is the third capturing group, which matches the top-level domain (TLD) part of the email address. It consists of the following components:
+
+7. [a-z\.]: A character class that matches any lowercase letter (a-z) or a period (dot).
+{2,6}: A quantifier that specifies that the preceding character class should occur between 2 to 6 times, allowing TLDs with lengths like ".com", ".org", ".info", etc.
+$: The end anchor. It asserts that the match must end at the end of the text.
+
 ### Anchors
+
+- ^ (caret symbol): This is the start anchor. It asserts that the match must start at the beginning of the text (or line, depending on the regex mode used). In this case, it means that the email address must begin with the pattern specified in the regular expression.
+
+- $ (dollar sign): This is the end anchor. It asserts that the match must end at the end of the text (or line). In this case, it means that the email address must end with the pattern specified in the regular expression.
 
 ### Quantifiers
 
+- + (Plus Symbol): The plus symbol is a quantifier that matches one or more occurrences of the preceding element. In this regex, it is used in two places:
+
+([a-z0-9_\.-]+): It matches one or more occurrences of lowercase letters (a-z), digits (0-9), underscores (_), periods (.), or hyphens (-) in the local part of the email address. This allows the local part to have multiple characters.
+([\da-z\.-]+): It matches one or more occurrences of lowercase letters (a-z), digits (0-9), periods (.), or hyphens (-) in the domain name part of the email address. This allows the domain name to have multiple characters.
+{2,6} (Curly Braces with Minimum and Maximum): The curly braces with two values separated by a comma are a quantifier that matches a specific range of occurrences of the preceding element. In this regex, it is used in the following part:
+
+([a-z\.]{2,6}): It matches a sequence of lowercase letters (a-z) or periods (.) in the top-level domain (TLD) part of the email address. The quantifier {2,6} means that the TLD can have a minimum of 2 characters and a maximum of 6 characters. This allows the TLD to be, for example, ".com", ".org", ".info", etc.
+
 ### OR Operator
+
+- Or operator is done by [a-z0-9_\.-], allows any character from this set to be matched. and ([\da-z\.-]+), allows  multiple characters from this set to be matched in sequence.
 
 ### Character Classes
 
+- [a-z0-9_\.-]:
+a, b, c, ..., z (all lowercase letters)
+0, 1, 2, ..., 9 (all digits)
+_ (underscore)
+. (period)
+(hyphen)
+
+- [\da-z\.-]: 
+a, b, c, ..., z (all lowercase letters)
+0, 1, 2, ..., 9 (all digits)
+. (period)
+(hyphen)
+
+- [a-z\.]:
+a, b, c, ..., z (all lowercase letters)
+. (period)
+
 ### Flags
 
+- No flags. 
+
 ### Grouping and Capturing
+
+1. ([a-z0-9_\.-]+): matches and captures the local part of the email address (before the "@" symbol). The local part consists of lowercase letters (a-z), digits (0-9), underscores (_), periods (.), or hyphens (-).
+
+2. ([\da-z\.-]+):  matches and captures the domain name part of the email address (after the "@" symbol). The domain name consists of lowercase letters (a-z), digits (0-9), periods (.), or hyphens (-).
+
+3. ([a-z\.]{2,6}): matches and captures the top-level domain (TLD) part of the email address. The TLD consists of lowercase letters (a-z) or periods (.).
 
 ### Bracket Expressions
 
@@ -42,8 +101,12 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Back-references
 
+- No back referneces. 
+
 ### Look-ahead and Look-behind
+
+- No look-ahead or look-behind applicable. 
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+My name is Darin Marte, junior software developer. The link to my github is https://github.com/darvinmarte.
